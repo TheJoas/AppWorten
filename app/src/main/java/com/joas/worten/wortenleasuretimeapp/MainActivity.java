@@ -27,12 +27,15 @@ public class MainActivity extends AppCompatActivity{
         tabLayout.setupWithViewPager(vpPager);
 
         vpPager.setAdapter(adapterViewPager);
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_person);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_home);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_settings);
     }
 
     public class MyPagerAdapter extends FragmentPagerAdapter {
         final int NUM_ITEMS = 3;
         private final Context context;
-        private String tabTitles[] = new String[] { "Tab1", "Tab2", "Tab3" };
 
         public MyPagerAdapter(FragmentManager fragmentManager, Context context) {
             super(fragmentManager);
@@ -58,12 +61,6 @@ public class MainActivity extends AppCompatActivity{
                 default: return FirstFragment.newInstance(position, "Page #" + String.valueOf(position));
             }
         }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return tabTitles[position];
-        }
-
     }
 
 }
