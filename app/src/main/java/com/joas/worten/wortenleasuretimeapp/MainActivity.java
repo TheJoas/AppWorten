@@ -8,9 +8,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
-public class MainActivity extends AppCompatActivity {
+
+
+public class MainActivity extends AppCompatActivity{
 
     FragmentPagerAdapter adapterViewPager;
 
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
-        adapterViewPager = new MyPagerAdapter(getSupportFragmentManager(),MainActivity.this);
+        adapterViewPager = new MyPagerAdapter(getSupportFragmentManager(), MainActivity.this);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab);
         tabLayout.setupWithViewPager(vpPager);
@@ -50,7 +51,12 @@ public class MainActivity extends AppCompatActivity {
         // Returns the fragment to display for that page
         @Override
         public Fragment getItem(int position) {
-            return FirstFragment.newInstance(position, "Page #" + String.valueOf(position));
+            switch (position){
+                case 0: return FirstFragment.newInstance(position, "Page #" + String.valueOf(position));
+                case 1: return SecondFragment.newInstance();
+                case 2: return FirstFragment.newInstance(position, "Page #" + String.valueOf(position));
+                default: return FirstFragment.newInstance(position, "Page #" + String.valueOf(position));
+            }
         }
 
         @Override
