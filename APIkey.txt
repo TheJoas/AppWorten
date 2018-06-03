@@ -1,0 +1,5 @@
+Zomato = 56c403186b579962277e28d227d3bde1
+
+https://developers.zomato.com/documentation?lang=por#!/common/cities
+
+Esquece o TRIPADVISOR!
